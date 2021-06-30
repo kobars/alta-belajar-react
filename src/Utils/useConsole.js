@@ -6,6 +6,10 @@ const useConsole = ({ componentName, color }) => {
     `background: #222; color: ${color}`
   );
   useEffect(() => {
+    console.log(
+      `%c${componentName} is Mounted`,
+      `background: #222; color: #a29bfe`
+    );
     return () =>
       console.log(
         `%c${componentName} is Destroyed`,
