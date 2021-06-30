@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Input from "./Components/Input";
+import Selection from "./Components/Selection";
+import Label from "./Components/Label";
+import { emotionOptions, reactions } from "./Utils";
 
 function App() {
+  const [emotion, setEmotion] = useState(emotionOptions[0].value);
+  const handleChange = (e) => {
+    if (e.target) {
+      e.preventDefault();
+      setEmotion(e.target.value);
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container pt-2">
+      <form>
+        <Label labelID="emotion" content="Select emotions" />
+        <Selection
+          selectionID="emotion"
+          options={emotionOptions}
+          value={emotion}
+          onSelectionChange={handleChange}
+        />
+        <Label labelID="reaction" content="Reaction" />
+        <Input
+          key={emotion}
+          inputID="reaction"
+          defaultValue={reactions[emotion]}
+        />
+      </form>
     </div>
   );
 }
