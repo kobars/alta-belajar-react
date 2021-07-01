@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Input from "../Components/Input";
 import Selection from "../Components/Selection";
 import Label from "../Components/Label";
@@ -32,6 +32,7 @@ const Form = () => {
 };
 
 function App() {
+  const history = useHistory();
   const [isShow, setShow] = useState(true);
   // const [buttonName, setButtonName] = useState("Hide");
   const handleButtonClick = () => {
@@ -41,6 +42,9 @@ function App() {
     // setButtonName(isShow ? "Show" : "Hide");
     // setButtonName((prev) => (prev === "Show" ? "Hide" : "Show"));
   };
+  const handleChangeRoute = () => {
+    history.push("/page-two");
+  };
   return (
     <div className="container pt-2">
       {isShow && <Form />}
@@ -49,6 +53,9 @@ function App() {
       </button>
       <div>
         <Link to="/page-two">Pindah ke halaman dua</Link>
+        <button className="btn btn-primary" onClick={handleChangeRoute}>
+          Pindah halaman dua
+        </button>
       </div>
     </div>
   );
