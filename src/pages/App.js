@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import Input from "../Components/Input";
 import Selection from "../Components/Selection";
 import Label from "../Components/Label";
-import { emotionOptions, reactions } from "../Utils";
+import { emotionOptions, reactions, changeRoute } from "../Utils";
 
 const Form = () => {
   const [emotion, setEmotion] = useState(emotionOptions[0].value);
@@ -43,7 +43,7 @@ function App() {
     // setButtonName((prev) => (prev === "Show" ? "Hide" : "Show"));
   };
   const handleChangeRoute = () => {
-    history.push("/page-two");
+    changeRoute({ history, route: "/page-two" });
   };
   return (
     <div className="container pt-2">
@@ -51,12 +51,12 @@ function App() {
       <button onClick={handleButtonClick} className="btn btn-primary mt-4 mb-4">
         {isShow ? "Hide" : "Show"}
       </button>
-      <div>
+      <div className="mb-4">
         <Link to="/page-two">Pindah ke halaman dua</Link>
-        <button className="btn btn-primary" onClick={handleChangeRoute}>
-          Pindah halaman dua
-        </button>
       </div>
+      <button className="btn btn-primary" onClick={handleChangeRoute}>
+        Pindah halaman dua
+      </button>
     </div>
   );
 }

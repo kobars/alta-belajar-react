@@ -11,3 +11,7 @@ export const emotionOptions = [
   { label: "Sad", value: "sad" },
   { label: "Confused", value: "confused" },
 ];
+
+export const changeRoute = ({ history, route }) => {
+  history.push(route);
+};
