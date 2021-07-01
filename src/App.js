@@ -32,16 +32,19 @@ const Form = () => {
 
 function App() {
   const [isShow, setShow] = useState(true);
+  // const [buttonName, setButtonName] = useState("Hide");
   const handleButtonClick = () => {
     setShow(!isShow);
     // sama dengan bawah
     // setShow((prev) => !prev);
+    // setButtonName(isShow ? "Show" : "Hide");
+    // setButtonName((prev) => (prev === "Show" ? "Hide" : "Show"));
   };
   return (
     <div className="container pt-2">
       {isShow && <Form />}
       <button onClick={handleButtonClick} className="btn btn-primary mt-4">
-        Show / Hide
+        {isShow ? "Hide" : "Show"}
       </button>
     </div>
   );
