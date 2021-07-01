@@ -8,7 +8,6 @@ function App() {
   const [emotion, setEmotion] = useState(emotionOptions[0].value);
   const handleChange = (e) => {
     if (e.target) {
-      e.preventDefault();
       setEmotion(e.target.value);
     }
   };
@@ -24,7 +23,7 @@ function App() {
         />
         <Label labelID="reaction" content="Reaction" />
         <Input
-          key={emotion}
+          // key={emotion}
           inputID="reaction"
           defaultValue={reactions[emotion]}
         />

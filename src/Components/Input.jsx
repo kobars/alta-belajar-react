@@ -8,7 +8,8 @@ const Input = ({ inputID, defaultValue }) => {
       id={inputID}
       disabled
       className="form-control"
-      defaultValue={defaultValue}
+      value={defaultValue}
+      // defaultValue={defaultValue}
     />
   );
 };
